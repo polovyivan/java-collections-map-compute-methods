@@ -1,0 +1,23 @@
+@startuml
+start
+!$shared = "remove entry by key"
+ :Get value by the key;
+ :Apply remappingFunction(key, value)\n            to define a new value;
+ if (Result of remappingFunction) then (not null)
+   if(entry exists) then (yes)
+   :replace old value\n in existing entry;
+   else(no)
+   :add new entry;
+   endif
+   :return result;
+ else (null)
+ if (value is not null) then (yes)
+   :$shared;
+ elseif(map contains key) then (yes)
+   :$shared;
+ else (no)
+ endif
+ :return null;
+ endif
+stop
+@enduml

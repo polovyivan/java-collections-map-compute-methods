@@ -1,0 +1,16 @@
+@startuml
+start
+ #MediumSpringGreen:get value by the key;
+ #MediumSpringGreen:if (value is null) then (no)
+  #MediumSpringGreen:apply remappingFunction(key, value)\n            to define a new value;
+   #MediumSpringGreen:if(new value is null) then (no)
+   #MediumSpringGreen:update the value\n    in the entry;
+   else(yes)
+   :remove entry;
+   endif
+   #MediumSpringGreen:return new value;
+   else (yes)
+   :return null;
+ endif
+stop
+@enduml

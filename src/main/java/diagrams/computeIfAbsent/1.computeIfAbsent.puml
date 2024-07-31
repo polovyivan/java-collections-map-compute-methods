@@ -1,0 +1,16 @@
+@startuml
+start
+ :get value by the key;
+ if (value is null) then (yes)
+  :apply mappingFunction(key)\n        to define a new value;
+   if(new value is null) then (no)
+   :         add new entry or\nupdates value of existing one;
+   :return new value;
+   else(yes)
+   :return null;
+   endif
+     else (no)
+        :return value;
+ endif
+stop
+@enduml

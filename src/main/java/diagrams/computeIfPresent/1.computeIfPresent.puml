@@ -1,0 +1,16 @@
+@startuml
+start
+ :get value by the key;
+ if (value is null) then (no)
+  :apply remappingFunction(key, newValue)\n            to define a new value;
+   if(new value is null) then (no)
+   :update the value\n    in the entry;
+   else(yes)
+   :remove entry;
+   endif
+   :return new value;
+   else (yes)
+   :return null;
+ endif
+stop
+@enduml

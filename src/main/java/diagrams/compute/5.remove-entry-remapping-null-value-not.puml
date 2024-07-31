@@ -1,0 +1,23 @@
+@startuml
+start
+!$shared = "remove entry by key"
+ #MediumSpringGreen:Get value by the key;
+ #MediumSpringGreen:Apply remappingFunction(key, value)\n            to define a new value;
+ #MediumSpringGreen:if (Result of remappingFunction) then (not null)
+   if(entry exists) then (yes)
+   :replace old value\n in existing entry;
+   else(no)
+   :add new entry;
+   endif
+   :return result;
+ else (null)
+ if (value is not null) then (yes)
+   :$shared;
+ #MediumSpringGreen:elseif(map contains key) then (yes)
+ #MediumSpringGreen:$shared;
+ else (no)
+ endif
+ #MediumSpringGreen:return null;
+ endif
+stop
+@enduml
